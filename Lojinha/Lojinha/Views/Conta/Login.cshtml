@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+            <form action="/" method="post">
+
+                <div class="form-group">
+                    <label>Login</label>
+                    <input class="form-control" type="text" name="name" value="" />
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input class="form-control" type="password" name="name" value="" />
+                </div>
+                <p>Ainda não tem um cadastro? <a asp-area="" asp-controller="Conta" asp-action="CadastroUsuario">Cadastro</a></p>
+                <button class="btn btn-success btn-lg">Entrar</button>
+            </form>
+            
+        </div>
+    </div>
+
+</div>

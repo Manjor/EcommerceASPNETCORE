@@ -1,0 +1,174 @@
+﻿
+@{
+    ViewData["Title"] = "Carrinho";
+}
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-12 text-center">
+            <h2 id="h2Carrinho">Carrinho de Compras</h2>
+        </div>
+
+        <div id="divTabela" class="col-md-10 col-md-offset-1 text-center table-bordered">
+            <table class="table table-responsive">
+
+                <tr>
+                    <td>ID</td>
+                    <td>Produto</td>
+                    <td>Quantidade</td>
+                    <td>Valor</td>
+                    <td>Remover</td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>Placa Mãe Asus e tal tal</td>
+                    <td>2</td>
+                    <td>R$ 2500,00</td>
+                    <td><button class="btn btn-danger btn-sm">X</button></td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>Placa Mãe Asus e tal tal</td>
+                    <td>1</td>
+                    <td>R$ 2500,00</td>
+                    <td><button class="btn btn-danger btn-sm">X</button></td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>Placa Mãe Asus e tal tal</td>
+                    <td>2</td>
+                    <td>R$ 2500,00</td>
+                    <td><button class="btn btn-danger btn-sm">X</button></td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>Placa Mãe Asus e tal tal</td>
+                    <td>2</td>
+                    <td>R$ 2500,00</td>
+                    <td><button class="btn btn-danger btn-sm">X</button></td>
+                </tr>
+                <tr>
+                    <td>Frete</td>
+                    <td></td>
+                    <td></td>
+                    <td>R$ 0000,00</td>
+                    <td></td>
+
+                </tr>
+                <tr>
+                    <td>SubTatal</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>R$ 0000,00</td>
+                </tr>
+            </table>
+
+
+            <form class="form form-inline" action="/" method="post">
+                <div class="form-group-lg">
+                    <label>Calcular Frete</label>
+                    <input class="form-control" type="type" name="name" value="" />
+                    <button class="form-control btn btn-warning">Calcular</button>
+                </div>
+
+            </form>
+
+            <button class="btn btn-success btn-lg">Finalizar Compra</button>
+
+        </div>
+
+        <div class="col-md-8 col-md-offset-2">
+            <h4>Formas de Pagamento</h4>
+            <ul class="">
+                <li>Nos Cartões em até 8 vezes</li>
+                <li>Boleto Bancário</li>
+                <li>Tranferencia entre Contas</li>
+                <li>Mercado Pago</li>
+                <li>PagSeguro</li>
+                <li>PayPal</li>
+                <li>BitCoin</li>
+                <li>Crediário</li>
+                <li>Dinheiro</li>
+            </ul>
+        </div>
+
+
+
+
+    </div>
+
+</div>
+
+
+
+
+
+<div id="divMaisComprados" class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Antes de Finalizar a compra. Que tal dar uma olhada nas promoções?</h3>
+        </div>
+
+        <div class=" col-sm-6 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                Placa Mãe 01
+                    <img src="~/images/placa.jpg" class="img-responsive" />
+                </div>
+                <div class="panel-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </div>
+                <div class="panel-footer">
+                    <button class="btn btn-success">Comprar Agora</button>
+                </div>
+            </div>
+        </div>
+        <div class=" col-sm-6 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                Panel heading
+                    <img src="~/images/placa.jpg" class="img-responsive" />
+                </div>
+                <div class="panel-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </div>
+                <div class="panel-footer">
+                    <button class="btn btn-success">Comprar Agora</button>
+                </div>
+            </div>
+        </div>
+        <div class=" col-sm-6 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                Panel heading
+                    <img src="~/images/placa.jpg" class="img-responsive" />
+                </div>
+                <div class="panel-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </div>
+                <div class="panel-footer">
+                    <button class="btn btn-success">Comprar Agora</button>
+                </div>
+            </div>
+        </div>
+        <div class=" col-sm-6 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                Panel heading
+                    <img src="~/images/placa.jpg" class="img-responsive" />
+                </div>
+                <div class="panel-body">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    <p>R$ 1.000,00</p>
+                </div>
+                <div class="panel-footer">
+                    <button class=" btn btn-success">Comprar Agora</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
