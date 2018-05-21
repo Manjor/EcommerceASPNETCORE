@@ -32,8 +32,6 @@ namespace Lojinha.Models
             this.Arquivo = arquivo;
             this.Categoria = categoria; 
             this.Id = id;
-
-           
         }
 
 

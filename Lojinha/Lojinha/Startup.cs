@@ -23,11 +23,12 @@ namespace Lojinha
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            string connectionString = Configuration.GetConnectionString("Default");
+
+            string connectionString =
+                Configuration.GetSection("ConnectionStrings").GetValue<string>("Default");
 
             services.AddDbContext<BancoContext>(options =>
-                options.UseSqlServer(connectionString)
-            );
+            options.UseSqlServer(connectionString));
 
         }
 
