@@ -11,5 +11,19 @@ namespace Lojinha.Models
         public int Id { get; private set; }
         public string NomeCategoria { get; private set; }
 
+        public Categoria(int id, string nomeCategoria)
+            : this(nomeCategoria)
+        {
+            this.Id = id;
+        }
+
+        public Categoria(string nomeCategoria)
+        {
+            this.NomeCategoria = nomeCategoria;
+        }
+        public Categoria() { }
+        
+
+
     }
 }
