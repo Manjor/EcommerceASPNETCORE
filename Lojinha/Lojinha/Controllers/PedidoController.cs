@@ -31,9 +31,9 @@ namespace Lojinha.Controllers
         {
             return View();
         }
-        public IActionResult AdicionaProduto(string nome,string descricao,int quantidade,decimal valor,string arquivo, string categoria)
+        public IActionResult AdicionaProduto(Produto produto)
         {
-            _dataService.AddProduto(nome,descricao,quantidade,valor,arquivo,categoria);
+            _dataService.AddProduto(produto);
             return RedirectToAction("Index");
         }
     }

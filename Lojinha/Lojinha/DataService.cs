@@ -32,12 +32,16 @@ namespace Lojinha
             //Converte o dado do parametro para inteiro
             Int32.TryParse(id, out idInt);
 
+            
+
+
             //Cria uma variavel que irá receber o resultado da clausula Where
             //Que irá capturar no banco de dados a Categoria correspondente 
             //Ao Id inserido no parametro
             var catId = this._contexto.Categorias.Where(c => c.Id == idInt);
 
-             Categoria categoria = (Categoria) catId;
+
+            
              return categoria;
         }
 
