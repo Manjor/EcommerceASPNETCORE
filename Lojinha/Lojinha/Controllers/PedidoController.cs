@@ -19,33 +19,6 @@ namespace Lojinha.Controllers
         }
 
 
-        
-
-
-
-
-        List<Produto> produtos = new List<Produto>
-        {
-            new Produto(
-                "Placa Mae Teste",
-                "Tesde de Placa",
-                120,
-                300.00m,
-                "Sem Arquivo até agora",
-                
-                )
-        }
-
-
-
-
-
-
-
-
-
-
-
         public IActionResult Carrinho()
         {
             return View();
@@ -58,9 +31,10 @@ namespace Lojinha.Controllers
         {
             return View();
         }
-        public IActionResult AdicionaProduto(Produto produto)
+        public IActionResult AdicionaProduto(string nome,string descricao,int quantidade,decimal valor,string arquivo, string categoria)
         {
-            return 0;
+            _dataService.AddProduto(nome,descricao,quantidade,valor,arquivo,categoria);
+            return RedirectToAction("Index");
         }
     }
 }

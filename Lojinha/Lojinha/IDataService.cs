@@ -9,10 +9,12 @@ namespace Lojinha
     public interface IDataService
     {
         
-        void InsereProduto(Produto produto);
+        //void InsereProduto(Produto produto);
         List<Produto> GetProdutos();
-
-        List<Categoria> GetCategorias();
-
+        List<Categoria> GetCategoria();
+        Categoria GetCategoriaId(string id);
+        void InsereDB();
+        void InsereProduto(Produto produto);
+        void AddProduto(string nome, string descricao, int quantidade, decimal valor, string arquivo, string categoria);
     }
 }

@@ -3,5 +3,26 @@
     ViewData["Title"] = "Cadastro";
 }
 
-<h2>Cadastro</h2>
+<h2>Cadastra Produto</h2>
+<div>
+    <form class="form-group" action="/Pedido/AdicionaProduto" method="post">
+        <label for="nome">Nome:</label>
+        <input class="form-control" id="nome" name="nome" />
+
+        <label for="preco">Descricao:</label>
+        <input class="form-control" id="descricao" name="descricao" />
+
+        <label for="preco">Quantidade:</label>
+        <input class="form-control" id="quantidade" name="quantidade" />
+
+        <label for="preco">Valor:</label>
+        <input class="form-control" id="valor" name="valor" />
+        <label for="preco">Valor:</label>
+        <input class="form-control" id="valor" name="arquivo" />
+        <label for="preco">Valor:</label>
+        <input class="form-control" id="valor" name="categoria" />
+
+        <input class="btn btn-primary" type="submit" name="botao-add" value="Cadastrar" />
+    </form>
+</div>
 

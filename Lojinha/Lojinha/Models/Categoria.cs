@@ -22,6 +22,8 @@ namespace Lojinha.Models
             this.NomeCategoria = nomeCategoria;
         }
         public Categoria() { }
+
+
         
 
 
