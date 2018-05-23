@@ -13135,24 +13135,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MANOEL\\.nuget\\packages\\": {},
+    "C:\\Users\\Kleber Junio\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MANOEL\\Documents\\GitHub\\Loja-ASP\\Lojinha\\Lojinha\\Lojinha.csproj",
+      "projectUniqueName": "C:\\xampp\\htdocs\\Loja-ASP\\Lojinha\\Lojinha\\Lojinha.csproj",
       "projectName": "Lojinha",
-      "projectPath": "C:\\Users\\MANOEL\\Documents\\GitHub\\Loja-ASP\\Lojinha\\Lojinha\\Lojinha.csproj",
-      "packagesPath": "C:\\Users\\MANOEL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MANOEL\\Documents\\GitHub\\Loja-ASP\\Lojinha\\Lojinha\\obj\\",
+      "projectPath": "C:\\xampp\\htdocs\\Loja-ASP\\Lojinha\\Lojinha\\Lojinha.csproj",
+      "packagesPath": "C:\\Users\\Kleber Junio\\.nuget\\packages\\",
+      "outputPath": "C:\\xampp\\htdocs\\Loja-ASP\\Lojinha\\Lojinha\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\MANOEL\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Kleber Junio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
