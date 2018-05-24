@@ -6,17 +6,23 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Lojinha.Controllers
 {
-    public class ContaController : Controller
+    public class UsuarioController : Controller
     {
-        public IActionResult Login()
+        public IActionResult GerenciarUsuario()
         {
             return View();
         }
-        public IActionResult CadastroUsuario()
+
+        public IActionResult CadastroCliente()
         {
             return View();
         }
-        public IActionResult MinhaConta()
+
+        public IActionResult CadastroFuncionario()
+        {
+            return View();
+        }
+        public IActionResult ContaUsuario()
         {
             return View();
         }

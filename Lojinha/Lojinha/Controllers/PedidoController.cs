@@ -21,10 +21,15 @@ namespace Lojinha.Controllers
 
         public IActionResult Carrinho()
         {
+
             return View();
         }
         public IActionResult Cadastro()
         {
+            IList<Categoria> categorias = this._dataService.GetCategoria();
+
+            ViewBag.Categorias = categorias;
+
             return View();
         }
         public IActionResult Resumo()
@@ -34,10 +39,12 @@ namespace Lojinha.Controllers
         public IActionResult AdicionaProduto(string nome,string descricao,int quantidade,decimal valor,string arquivo, int categoria)
         {
 
-            Produto produto = new Produto(nome, descricao, quantidade, valor, arquivo, _dataService.GetCategoriaId(categoria));
+            Categoria cat = _dataService.GetCategoriaId(categoria);
+            Produto produto = new Produto(nome, descricao, quantidade, valor, arquivo, cat);
+
             _dataService.AddProduto(produto);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Cadastro");
         }
     }
 }

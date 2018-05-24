@@ -16,8 +16,6 @@ namespace Lojinha
             this._contexto = contexto;
         }
 
-
-
         //Retorna a lista de Produtos
         public List<Produto> GetProdutos()
         {
@@ -30,7 +28,6 @@ namespace Lojinha
            
              return this._contexto.Categorias.Where(c => c.Id == id).SingleOrDefault();
         }
-
 
         //Retorna a lista de Categorias
         public List<Categoria> GetCategoria()
@@ -46,25 +43,20 @@ namespace Lojinha
             this._contexto.SaveChanges();
         }
 
-
-
-
+        //Metodo que adiciona um produto ao banco de dados
         public void AddProduto(Produto produto)
         {
 
             this._contexto.Produtos.Add(produto);
             this._contexto.SaveChanges();
-
-
-
         }
         //Metodo de Inserção de Dados no Banco de Dados por meio de uma lista
         public void InsereDB()
         {
             List<Produto> produtos = new List<Produto>
             {
-                new Produto("Placa Testing","desc",12,789m,"ainda nao", this.GetCategoriaId("1")),
-                new Produto("Placa Testing","desc",12,789m,"ainda nao", this.GetCategoriaId("1"))
+                new Produto("Placa Testing","desc",12,789m,"ainda nao", this.GetCategoriaId(1)),
+                new Produto("Placa Testing","desc",12,789m,"ainda nao", this.GetCategoriaId(1))
             };
 
             foreach (var produto in produtos)
@@ -75,7 +67,28 @@ namespace Lojinha
             this._contexto.SaveChanges();
         }
 
-        
+
+
+        /**********************************************/
+
+        //Busca os pedidos dentro do banco e cria uma lista deles
+        public List<ItemPedido> GetItemPedidos()
+        {
+            return this._contexto.ItensPedido.ToList();
+        }
+
+        //Busca um registro de Pedido do banco, por meio do Id inserido
+        public ItemPedido GetPedidoId(int id)
+        {
+            return this._contexto.ItensPedido.Where(p => p.Id == id).SingleOrDefault();
+        }
+
+        public void AddItemPedido(ItemPedido itemPedido)
+        {
+            this._contexto.ItensPedido.Add(itemPedido);
+            this._contexto.SaveChanges();
+            
+        }
 
     }
 }
