@@ -16,8 +16,6 @@ namespace Lojinha
             this._contexto = contexto;
         }
 
-
-
         //Retorna a lista de Produtos
         public List<Produto> GetProdutos()
         {
@@ -25,8 +23,9 @@ namespace Lojinha
         }
 
         //Retorna a Categoria desejada pelo Id 
-        public Categoria GetCategoriaId(string id)
+        public Categoria GetCategoriaId(int id)
         {
+<<<<<<< HEAD
             //Declara uma variavel inteira
             int idInt;
             //Converte o dado do parametro para inteiro
@@ -43,8 +42,11 @@ namespace Lojinha
 
             
              return categoria;
+=======
+           
+             return this._contexto.Categorias.Where(c => c.Id == id).SingleOrDefault();
+>>>>>>> 98f008b8ae101d36f5ffcf40cc54456fbaa2c1cb
         }
-
 
         //Retorna a lista de Categorias
         public List<Categoria> GetCategoria()
@@ -60,25 +62,20 @@ namespace Lojinha
             this._contexto.SaveChanges();
         }
 
-        public void AddProduto(string nome,string descricao,int quantidade,decimal valor,string arquivo,string categoria)
+        //Metodo que adiciona um produto ao banco de dados
+        public void AddProduto(Produto produto)
         {
-
-
-            Produto produto = new Produto(nome, descricao, quantidade, valor, arquivo, this.GetCategoriaId(categoria));
 
             this._contexto.Produtos.Add(produto);
             this._contexto.SaveChanges();
-
-
-
         }
         //Metodo de Inserção de Dados no Banco de Dados por meio de uma lista
         public void InsereDB()
         {
             List<Produto> produtos = new List<Produto>
             {
-                new Produto("Placa Testing","desc",12,789m,"ainda nao", this.GetCategoriaId("1")),
-                new Produto("Placa Testing","desc",12,789m,"ainda nao", this.GetCategoriaId("1"))
+                new Produto("Placa Testing","desc",12,789m,"ainda nao", this.GetCategoriaId(1)),
+                new Produto("Placa Testing","desc",12,789m,"ainda nao", this.GetCategoriaId(1))
             };
 
             foreach (var produto in produtos)
@@ -89,7 +86,28 @@ namespace Lojinha
             this._contexto.SaveChanges();
         }
 
-        
+
+
+        /**********************************************/
+
+        //Busca os pedidos dentro do banco e cria uma lista deles
+        public List<ItemPedido> GetItemPedidos()
+        {
+            return this._contexto.ItensPedido.ToList();
+        }
+
+        //Busca um registro de Pedido do banco, por meio do Id inserido
+        public ItemPedido GetPedidoId(int id)
+        {
+            return this._contexto.ItensPedido.Where(p => p.Id == id).SingleOrDefault();
+        }
+
+        public void AddItemPedido(ItemPedido itemPedido)
+        {
+            this._contexto.ItensPedido.Add(itemPedido);
+            this._contexto.SaveChanges();
+            
+        }
 
     }
 }

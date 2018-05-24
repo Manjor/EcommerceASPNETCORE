@@ -12,9 +12,9 @@ namespace Lojinha
         //void InsereProduto(Produto produto);
         List<Produto> GetProdutos();
         List<Categoria> GetCategoria();
-        Categoria GetCategoriaId(string id);
+        Categoria GetCategoriaId(int id);
         void InsereDB();
         void InsereProduto(Produto produto);
-        void AddProduto(string nome, string descricao, int quantidade, decimal valor, string arquivo, string categoria);
+        void AddProduto(Produto produto);
     }
 }

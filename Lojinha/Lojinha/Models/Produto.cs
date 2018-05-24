@@ -37,6 +37,7 @@ namespace Lojinha.Models
             this.Categoria = categoria;
         }
 
+        public Produto() { }
 
         /*
          https://msdn.microsoft.com/pt-br/library/jj128159.aspx
