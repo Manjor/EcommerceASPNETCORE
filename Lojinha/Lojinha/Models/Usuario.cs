@@ -17,6 +17,21 @@ namespace Lojinha.Models
         /*********************************************/
 
 
+        public Usuario(int id,string nome,string email,string cpf,string senha)
+            : this(nome,email,cpf,senha)
+        {
+            this.Id = id;
+        }
+
+        public Usuario(string nome,string email,string cpf,string senha)
+        {
+            this.Nome = nome;
+            this.Email = email;
+            this.Cpf = cpf;
+            this.Senha = senha;
+        }
+        public Usuario() { }
+        
 
     }
 }

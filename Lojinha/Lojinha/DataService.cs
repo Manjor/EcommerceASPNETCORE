@@ -25,27 +25,7 @@ namespace Lojinha
         //Retorna a Categoria desejada pelo Id 
         public Categoria GetCategoriaId(int id)
         {
-<<<<<<< HEAD
-            //Declara uma variavel inteira
-            int idInt;
-            //Converte o dado do parametro para inteiro
-            Int32.TryParse(id, out idInt);
-
-            
-
-
-            //Cria uma variavel que irá receber o resultado da clausula Where
-            //Que irá capturar no banco de dados a Categoria correspondente 
-            //Ao Id inserido no parametro
-            var catId = this._contexto.Categorias.Where(c => c.Id == idInt);
-
-
-            
-             return categoria;
-=======
-           
-             return this._contexto.Categorias.Where(c => c.Id == id).SingleOrDefault();
->>>>>>> 98f008b8ae101d36f5ffcf40cc54456fbaa2c1cb
+            return this._contexto.Categorias.Where(c => c.Id == id).SingleOrDefault();
         }
 
         //Retorna a lista de Categorias

@@ -15,5 +15,22 @@ namespace Lojinha.Models
         public string Numero { get; private set; }
 
         public Cidade Cidade { get; private set; }
+
+        public Endereco(int id, string logradouro, string bairro, string complemento, string numero,Cidade cidade)
+            :this(logradouro,bairro,complemento,numero,cidade)
+        {
+            this.Id = id;
+        }
+
+        public Endereco(string logradouro, string bairro, string complemento, string numero, Cidade cidade)
+        {
+            this.Logradouro = logradouro;
+            this.Bairro = bairro;
+            this.Complemento = complemento;
+            this.Numero = numero;
+            this.Cidade = cidade;
+        }
+
+
     }
 }

@@ -10,9 +10,25 @@ namespace Lojinha.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IDataService _dataService;
+
+
+        public HomeController(IDataService dataService)
+        {
+            this._dataService = dataService;
+        }
+
+
+
         public IActionResult Index()
         {
+
+            IList<Produto> produtos = this._dataService.GetProdutos();
+
+            ViewBag.Produtos = produtos;
+
             return View();
+
         }
 
         public IActionResult About()

@@ -11,5 +11,19 @@ namespace Lojinha.Models
         public int Id { get; private set; }
         public string NomeCidade { get; private set; }
         public Estado Estado { get; private set; }
+
+        public Cidade(int id, string nome,Estado estado)
+            : this(nome,estado)
+        {
+            this.Id = id;
+        }
+
+        public Cidade(string nome, Estado estado)
+        {
+            this.NomeCidade = nome;
+            this.Estado = estado;
+        }
+
+
     }
 }

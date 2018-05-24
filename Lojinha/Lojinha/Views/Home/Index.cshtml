@@ -32,118 +32,28 @@
             </ul>
         </div>
 
-        <div class="col-8 col-sm-6 col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-heading text-center">
-                    <img src="~/images/placa.jpg" class="img-responsive" alt="Alternate Text" />
-                </div>
-                <div class="panel-body">
-                    <h5>Nome do Produto</h5>
-                    <p>Description</p>
-                </div>
-                <div class="panel-footer">
-                    <button class=" btn btn-success">Comprar Agora</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-8 col-sm-6 col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <img src="~/images/placa.jpg" class="img-responsive" alt="Alternate Text" />
-                </div>
-                <div class="panel-body">
-                    <h5>Nome do Produto</h5>
-                    <p>Description</p>
-                </div>
-                <div class="panel-footer">
-                    <button class=" btn btn-success">Comprar Agora</button>
+        
+        @foreach (var produto in ViewBag.Produtos)
+        {
+            <div class="col-8 col-sm-6 col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <img src="~/images/placa.jpg" class="img-responsive" alt="Alternate Text" />
+                    </div>
+                    <div class="panel-body">
+                        <h5>@produto.NomeProduto</h5>
+                        <p>@produto.Descricao</p>
+                        <p>R$ @produto.Valor no Boleto com 5% de Desconto</p>
+                        <p>Em até 8 vezes de R$ @(produto.Valor / 8)</p>
+                    </div>
+                    <div class="panel-footer">
+                        <button class=" btn btn-success">Comprar Agora</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-8 col-sm-6  col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <img src="~/images/placa.jpg" class="img-responsive" alt="Alternate Text" />
-                </div>
-                <div class="panel-body">
-                    <h5>Nome do Produto</h5>
-                    <p>Description</p>
-                </div>
-                <div class="panel-footer">
-                    <button class=" btn btn-success">Comprar Agora</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-8 col-sm-6  col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <img src="~/images/placa.jpg" class="img-responsive" alt="Alternate Text" />
-                </div>
-                <div class="panel-body">
-                    <h5>Nome do Produto</h5>
-                    <p>Description</p>
-                </div>
-                <div class="panel-footer">
-                    <button class=" btn btn-success">Comprar Agora</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-8 col-sm-6  col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <img src="~/images/placa.jpg" class="img-responsive" alt="Alternate Text" />
-                </div>
-                <div class="panel-body">
-                    <h5>Nome do Produto</h5>
-                    <p>Description</p>
-                </div>
-                <div class="panel-footer">
-                    <button class=" btn btn-success">Comprar Agora</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-8 col-sm-6 col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <img src="~/images/placa.jpg" class="img-responsive" alt="Alternate Text" />
-                </div>
-                <div class="panel-body">
-                    <h5>Nome do Produto</h5>
-                    <p>Description</p>
-                </div>
-                <div class="panel-footer">
-                    <button class=" btn btn-success">Comprar Agora</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-8 col-sm-6 col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <img src="~/images/placa.jpg" class="img-responsive" alt="Alternate Text" />
-                </div>
-                <div class="panel-body">
-                    <h5>Nome do Produto</h5>
-                    <p>Description</p>
-                </div>
-                <div class="panel-footer">
-                    <button class=" btn btn-success">Comprar Agora</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-8 col-sm-6  col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <img src="~/images/placa.jpg" class="img-responsive" alt="Alternate Text" />
-                </div>
-                <div class="panel-body">
-                    <h5>Nome do Produto</h5>
-                    <p>Description</p>
-                </div>
-                <div class="panel-footer">
-                    <button class=" btn btn-success">Comprar Agora</button>
-                </div>
-            </div>
-        </div>
+
+        }
+
 
     </div>
 </div>
