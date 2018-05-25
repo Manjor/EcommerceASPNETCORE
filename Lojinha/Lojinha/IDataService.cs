@@ -16,5 +16,7 @@ namespace Lojinha
         void InsereDB();
         void InsereProduto(Produto produto);
         void AddProduto(Produto produto);
+
+
     }
 }

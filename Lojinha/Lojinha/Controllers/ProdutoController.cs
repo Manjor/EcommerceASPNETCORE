@@ -26,6 +26,13 @@ namespace Lojinha.Controllers
             return View();
             
         }
+        public IActionResult GerenciarProdutos()
+        {
+
+           
+                      
+            return View();
+        }
 
         public IActionResult AdicionaProduto(string nome, string descricao, int quantidade, decimal valor, string arquivo, int categoria)
         {

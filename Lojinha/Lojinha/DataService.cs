@@ -11,6 +11,10 @@ namespace Lojinha
 
         private readonly BancoContext _contexto;
 
+    
+
+        public object Resultado { get; set ; }
+
         public DataService(BancoContext contexto)
         {
             this._contexto = contexto;
@@ -21,6 +25,9 @@ namespace Lojinha
         {
             return this._contexto.Produtos.ToList();
         }
+
+
+
 
         //Retorna a Categoria desejada pelo Id 
         public Categoria GetCategoriaId(int id)
