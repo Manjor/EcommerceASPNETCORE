@@ -4,63 +4,69 @@
 }
 
 <div class="container">
+
     <div class="row">
 
-        <div class="col-md-12 text-center">
-            <h2>Cadastro de Usuario</h2>
-        </div>
-        <form class="form" action="/AdicionaCliente" method="post">
+        <form action="/Usuario/AdicionaCliente" method="post">
 
-            <div class="form-group col-md-3">
-                <label class="control-label" for="nome">Nome:</label>
-                <input class="form-control" name="nome" id="nome" placeholder="Seu Nome">
+            <div class="form-group col-sm-6 col-sm-offset-3">
+                <label class="control-label" for="nome">Nome Completo:</label>
+                <input type="text" class="form-control" name="nome" id="nome" required>
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-sm-6 col-sm-offset-3">
                 <label class="control-label" for="email">Email:</label>
-                <input class="form-control" name="email" id="email" placeholder="My label">
+                <input type="text" class="form-control" name="email" id="email" required>
             </div>
-            <div class="form-group col-md-3">
-                <label class="control-label" for="cpf">Cpf:</label>
-                <input class="form-control" id="cpf" placeholder="Ex.: 000.000.000-00">
+            <div class="form-group col-sm-3 col-sm-offset-3">
+                <label class="control-label" for="cpf">CPF:</label>
+                <input type="text" class="form-control" name="cpf" id="cpf" required>
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-sm-3">
                 <label class="control-label" for="senha">Senha</label>
-                <input type="password" class="form-control" name="senha" id="senha" placeholder="Digite uma senha">
+                <input type="text" class="form-control" name="senha" id="senha" required>
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-sm-6 col-sm-offset-3">
                 <label class="control-label" for="logradouro">Logradouro</label>
-                <input  class="form-control" name="logradouro" id="logradouro" placeholder="My label">
+                <input type="text" class="form-control" name="logradouro" id="logradouro" required>
             </div>
-            <div class="form-group col-md-3">
-                <label class="control-label" for="bairoo">Bairro</label>
-                <input class="form-control" name="bairro" id="bairro" placeholder="My label">
+            <div class="form-group col-sm-3 col-sm-offset-3">
+                <label class="control-label" for="bairro">Bairro</label>
+                <input type="text" class="form-control" name="bairro" id="bairro" required>
             </div>
-            <div class="form-group col-md-3">
-                <label class="control-label" for="complemento">Complemento</label>
-                <input  class="form-control" name="complemento" id="complemento" placeholder="My label">
-            </div>
-            <div class="form-group col-md-3">
+
+            <div class="form-group col-sm-3 col-">
                 <label class="control-label" for="numero">Numero</label>
-                <input  class="form-control" name="numero" id="numero" placeholder="My label">
+                <input type="text" class="form-control" name="numero" id="numero" required>
             </div>
-            <div class="form-group col-md-3">
-                <label class="control-label" for="estado">Estado</label>
-                <input  class="form-control" name="estado" id="estado" placeholder="My label">
+
+            <div class="form-group col-sm-6 col-sm-offset-3">
+                <label class="control-label" for="numero">Complemento</label>
+                <input type="text" class="form-control" name="complemento" id="complemento" required>
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-sm-3 col-sm-offset-3">
                 <label class="control-label" for="cidade">Cidade</label>
-                <input  class="form-control" name="cidade" id="cidade" placeholder="My label">
+                <input type="text" class="form-control" name="cidade" id="cidade" required>
             </div>
-            <div class="form-group col-md-3">
-                <label for="bota-add">Finalizar Cadastro</label>
-                <input type="submit" class="btn btn-primary btn-block" id="botao-add"  placeholder="OK">
+            <div class="form-group col-sm-3 ">
+                <label class="control-label" for="estado">Estado</label>
 
+                <select class="form-control" name="estado" id="estado">
+
+                    @foreach (var _estado in ViewBag.Estados)
+                    {
+
+                        <option value="@_estado.Id">@_estado.NomeEstado</option>
+
+                    }
+                </select>
             </div>
-
-
+            
+            <div class="col-sm-12"></div>
+            <div class="form-group col-sm-4 col-sm-offset-4">
+                <button type="submit" name="botao-add" class="btn btn-block btn-primary">Cadastrar</button>
+            </div>
         </form>
-
-
     </div>
+
 </div>
 

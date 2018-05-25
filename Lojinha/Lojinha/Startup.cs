@@ -28,6 +28,8 @@ namespace Lojinha
             services.AddDbContext<BancoContext>(options =>
             options.UseSqlServer(connectionString));
             services.AddScoped<IDataService, DataService>();
+            services.AddScoped<IServicosUsuario, ServicosUsuario>();
+            services.AddScoped<IServicosEndereco, ServicosEndereco>();
 
         }
 

@@ -1,4 +1,5 @@
 ﻿using Lojinha.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,20 @@ namespace Lojinha
         {
             return this._contexto.Funcionarios.ToList();
         }
+
+        //Retorna a lista de Funcionarios junto com seus relacionamentos
+        //Usando Inner Join
+        //public List<String> GetFuncionariosGeral()
+        //{
+
+           
+        //    IEnumerable<Funcionario> fun = _contexto.Funcionarios.Include(u => u.Usuario).Where(x => x.)
+
+            
+        //}
+
+        
+
 
         //Retorna a lista de Niveis para Funcionarios do Sistema
         public List<Nivel> GetNivels()
@@ -96,6 +111,11 @@ namespace Lojinha
             this._contexto.Niveis.Add(nivel);
             this._contexto.SaveChanges();
         }
+        /*****************************************************/
+
+
+        
+
 
 
     }

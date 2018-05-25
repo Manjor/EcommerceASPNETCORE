@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container">
+
+    <div class="row">
+
+        <form action="/Usuario/Logar" method="post">
+
+            <div class="form-group col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                <label class="control-label" for="form-group-input">Email</label>
+                <input type="text" class="form-control" id="form-group-input" placeholder="Email">
+            </div>
+            <div class="form-group col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                <label class="control-label" for="form-group-input">Senha</label>
+                <input type="password" class="form-control" id="form-group-input" placeholder="Email">
+            </div>
+            <div class="col-sm-12"></div>
+            <div class="form-group col-sm-2 col-sm-offset-5">
+                <button class="btn btn-primary btn-block" type="submit" >Acessar</button>
+            </div>
+        </form>
+
+    </div>
+
+</div>

@@ -1,19 +1,23 @@
-﻿using System;
+﻿using Lojinha.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Lojinha.Models;
 
 namespace Lojinha
 {
-    public class ServicosEndereco : IServicosEnderecos
+    public class ServicosEndereco : IServicosEndereco
     {
+
+
         private readonly BancoContext _contexto;
 
+       
         public ServicosEndereco(BancoContext contexto)
         {
-            this._contexto = contexto;
+             this._contexto = contexto;
         }
+
 
 
         //Metodos de Adição no Banco de Dados Referentes a endereço
@@ -64,8 +68,5 @@ namespace Lojinha
         {
             return this._contexto.Estados.ToList();
         }
-
-
-
     }
 }

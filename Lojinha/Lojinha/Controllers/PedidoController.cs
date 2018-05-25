@@ -24,25 +24,11 @@ namespace Lojinha.Controllers
 
             return View();
         }
-        public IActionResult Cadastro()
-        {
-            IList<Categoria> categorias = this._dataService.GetCategoria();
-
-            ViewBag.Categorias = categorias;
-
-            return View();
-        }
+        
         public IActionResult Resumo()
         {
             return View();
         }
-        public IActionResult AdicionaProduto(string nome,string descricao,int quantidade, decimal valor, string arquivo, int categoria)
-        {
-            Categoria cat = this._dataService.GetCategoriaId(categoria);
-            Produto produto = new Produto(nome, descricao, quantidade, valor, arquivo, cat);
-            
-            _dataService.AddProduto(produto);
-            return RedirectToAction("Cadastro");
-        }
+        
     }
 }
