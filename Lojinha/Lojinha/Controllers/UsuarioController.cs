@@ -12,6 +12,7 @@ namespace Lojinha.Controllers
     public class UsuarioController : Controller
     {
 
+        string login;
         
         private readonly IServicosUsuario _usuarioServico;
         private readonly IServicosEndereco _enderecoServico;
@@ -50,19 +51,41 @@ namespace Lojinha.Controllers
 
         public IActionResult ContaUsuario(int id)
         {
-            Usuario usuario = this._usuarioServico.GetUsuarioId(id);
-            return View(usuario);
+            //Usuario usuario = this._usuarioServico.GetUsuarioId(id);
+            return View(/*usuario*/);
+        }
+
+
+        public IActionResult VerificaSessao()
+        {
+            if(HttpContext.Session.IsAvailable != false)
+            {
+                Console.WriteLine("Voce ja está logado");
+                return Redirect("ContaUsuario");
+            }
+            else
+            {
+                return Redirect("Login");
+            }
+            
+        }
+        public IActionResult FinalizaSessao()
+        {
+            HttpContext.Session.Remove("manoeltavares.jr@gmail.com");
+
+            return Redirect("Login");
+
         }
 
         public IActionResult AutenticarLogin(string email,string senha)
         {
-
-
-            if (_usuarioServico.GetLogin(email, senha) != null)
+            login = email;
+            if (this._usuarioServico.GetLogin(email, senha) != null)
             {
                 
-                HttpContext.Session.SetString(email,"logado");
-                return Redirect("ContaUsuario");
+                HttpContext.Session.SetString(login,"logado");
+                Console.WriteLine("Logado com Sucesso");
+                return RedirectToAction("ContaUsuario", new { msg = "Logado com Sucesso - Bem Vindo"});
             }
             else
             {

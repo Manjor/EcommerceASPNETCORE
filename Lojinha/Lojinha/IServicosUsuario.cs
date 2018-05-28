@@ -18,7 +18,7 @@ namespace Lojinha
 
 
         //Metodos de Consultas por ID
-        Usuario GetUsuarioId(int id);
+        //Usuario GetUsuarioId(int id);
         Usuario GetLogin(string email, string senha);
     }
 }

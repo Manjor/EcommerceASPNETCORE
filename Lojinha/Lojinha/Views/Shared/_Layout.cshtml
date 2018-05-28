@@ -26,6 +26,7 @@
                 <div class="col-md-3">
                     <h1>LJx Hardware</h1>
                 </div>
+            </div>
         </nav>
         <nav id="barra" class="navbar well-sm">
             <div class="container">
@@ -43,10 +44,11 @@
                         <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contato</a></li>
                     </ul>
                     <div class=" navbar-text pull-right">
-                        
-                             <a asp-area="" asp-controller="Usuario" asp-action="Login" class="btn-link">Fazer Login</a>
-                            
-                           
+
+                        <a asp-area="" asp-controller="Usuario" asp-action="VerificaSessao" class="btn-link">Fazer Login</a>
+                        <a asp-area="" asp-controller="Usuario" asp-action="FinalizaSessao" class="btn-link">Sair</a>
+
+
                     </div>
                 </div>
 

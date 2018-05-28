@@ -29,15 +29,15 @@ namespace Lojinha
 
         public Usuario GetLogin(string email , string senha)
         {
-            return _contexto.Usuarios.FirstOrDefault(u => u.Email == email && u.Senha == senha);
+            return _contexto.Usuarios.Where(u => u.Email == email && u.Senha == senha).Single();
         }
 
         ///////////////////////////////////////////////////////
         //Metodos que capturam um Objeto do Banco de Dados
-        public Usuario GetUsuarioId(int id)
-        {
-            return this._contexto.Usuarios.Where(u => u.Id == id).Single();
-        }
+        //public Usuario GetUsuarioId(int id)
+        //{
+        //    return this._contexto.Usuarios.Where(u => u.Id == id).Single();
+        //}
         
         ///////////////////////////////////////////////////////
         //Metodos de Adicao nas Tabelas de Pessoas
@@ -49,12 +49,5 @@ namespace Lojinha
             this._contexto.Usuarios.Add(usuario);
             this._contexto.SaveChanges();
         }
-
-       
-
-        
-
-
-
     }
 }
