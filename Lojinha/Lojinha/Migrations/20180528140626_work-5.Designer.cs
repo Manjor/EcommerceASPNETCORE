@@ -11,9 +11,10 @@ using System;
 namespace Lojinha.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    partial class BancoContextModelSnapshot : ModelSnapshot
+    [Migration("20180528140626_work-5")]
+    partial class work5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

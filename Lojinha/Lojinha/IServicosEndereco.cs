@@ -19,7 +19,7 @@ namespace Lojinha
 
         //Metodos de Adição nas Tabelas
         void AddEndereco(Usuario usuario);
-        void AddCidade(Cliente cliente);
+
 
         //Metodos de Capturas por meio de Id
         Endereco GetEnderecoId(int id);
