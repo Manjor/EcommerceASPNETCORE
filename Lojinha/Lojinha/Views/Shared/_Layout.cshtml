@@ -19,28 +19,41 @@
     </environment>
 </head>
 <body>
-    <nav id="barra" class="navbar well-sm">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar bg-success"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">LJX</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a></li>
-                    <li><a asp-area="" asp-controller="Produto" asp-action="Produtos">Produtos</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">Sobre</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contato</a></li>
-                </ul>
-                <div class=" navbar-text pull-right">
-                    <a asp-area="" asp-controller="Usuario" asp-action="Login" class="btn-link">Fazer Login</a>
+  
+    <header>
+        <nav id="barraMenus" class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h1>LJx Hardware</h1>
                 </div>
+        </nav>
+        <nav id="barra" class="navbar well-sm">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar bg-success"></span>
+                    </button>
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">LJX</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a></li>
+                        <li><a asp-area="" asp-controller="Produto" asp-action="Produtos">Produtos</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="About">Sobre</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contato</a></li>
+                    </ul>
+                    <div class=" navbar-text pull-right">
+                        
+                             <a asp-area="" asp-controller="Usuario" asp-action="Login" class="btn-link">Fazer Login</a>
+                            
+                           
+                    </div>
+                </div>
+
             </div>
-            
-        </div>
-    </nav>
+        </nav>
+    </header>
+
     <div class="body-content">
         @RenderBody()
 

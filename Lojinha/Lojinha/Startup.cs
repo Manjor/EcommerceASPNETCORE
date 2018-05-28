@@ -23,9 +23,17 @@ namespace Lojinha
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddMvc().AddSessionStateTempDataProvider();
 
-            services.AddSession();
+            services.AddDistributedMemoryCache();
+            services.AddSession( options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMilliseconds(30);
+                options.Cookie.HttpOnly = true;
+            }
+            
+            );
+            
+
             string connectionString =
                 Configuration.GetSection("ConnectionString").GetValue<string>("Default");
             services.AddDbContext<BancoContext>(options =>

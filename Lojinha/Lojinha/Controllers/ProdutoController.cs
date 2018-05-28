@@ -31,6 +31,7 @@ namespace Lojinha.Controllers
         public IActionResult GerenciarProdutos()
         {
 
+           
             return View();
 
         }

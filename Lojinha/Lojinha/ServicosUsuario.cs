@@ -26,58 +26,19 @@ namespace Lojinha
             return this._contexto.Usuarios.ToList();
         }
 
-        //Retorna a lista de Clientes do Sistema
-        public List<Cliente> GetClientes()
+
+        public Usuario GetLogin(string email , string senha)
         {
-            return this._contexto.Clientes.ToList();
+            return _contexto.Usuarios.FirstOrDefault(u => u.Email == email && u.Senha == senha);
         }
-        
-        //Retorna a lista de Funcionários do Sistema
-        public List<Funcionario> GetFuncionarios()
-        {
-            return this._contexto.Funcionarios.ToList();
-        }
-
-        //Retorna a lista de Funcionarios junto com seus relacionamentos
-        //Usando Inner Join
-        //public List<String> GetFuncionariosGeral()
-        //{
-
-           
-        //    IEnumerable<Funcionario> fun = _contexto.Funcionarios.Include(u => u.Usuario).Where(x => x.)
-
-            
-        //}
-
-        
-
-
-        //Retorna a lista de Niveis para Funcionarios do Sistema
-        public List<Nivel> GetNivels()
-        {
-            return this._contexto.Niveis.ToList();
-        }
-
 
         ///////////////////////////////////////////////////////
         //Metodos que capturam um Objeto do Banco de Dados
         public Usuario GetUsuarioId(int id)
         {
-            return this._contexto.Usuarios.Where(u => u.Id == id).SingleOrDefault();
+            return this._contexto.Usuarios.Where(u => u.Id == id).Single();
         }
-        public Cliente GetClienteId(int id)
-        {
-            return this._contexto.Clientes.Where(cl => cl.Id == id).SingleOrDefault();
-        }
-        public Funcionario GetFuncionarioId(int id)
-        {
-            return this._contexto.Funcionarios.Where(f => f.Id == id).SingleOrDefault();
-        }
-        public Nivel GetNivelId(int id)
-        {
-            return this._contexto.Niveis.Where(n => n.Id == id).SingleOrDefault();
-        }
-
+        
         ///////////////////////////////////////////////////////
         //Metodos de Adicao nas Tabelas de Pessoas
 
@@ -89,30 +50,7 @@ namespace Lojinha
             this._contexto.SaveChanges();
         }
 
-        //Metodo que adiciona um usuario ao banco de dados
-        public void AddCliente(Cliente cliente)
-        {
-
-            this._contexto.Clientes.Add(cliente);
-            this._contexto.SaveChanges();
-        }
-
-        //Metodo que adiciona um funcionario ao banco de Dados
-        public void AddFuncionario(Funcionario funcionario)
-        {
-
-            this._contexto.Funcionarios.Add(funcionario);
-            this._contexto.SaveChanges();
-        }
-
-        //Metodo que adiciona um metodo ao banco de dados
-        public void AddNivel(Nivel nivel)
-        {
-            this._contexto.Niveis.Add(nivel);
-            this._contexto.SaveChanges();
-        }
-        /*****************************************************/
-
+       
 
         
 

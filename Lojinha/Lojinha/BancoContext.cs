@@ -19,9 +19,6 @@ namespace Lojinha
         public DbSet<Estado> Estados { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
-        public DbSet<Cliente> Clientes { get; set; }
-        public DbSet<Funcionario> Funcionarios { get; set; }
-        public DbSet<Nivel> Niveis { get; set; }
 
         public BancoContext(DbContextOptions<BancoContext> options)
              : base(options)

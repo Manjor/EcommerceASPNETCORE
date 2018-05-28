@@ -48,24 +48,6 @@ namespace Lojinha.Migrations
                     b.ToTable("Cidades");
                 });
 
-            modelBuilder.Entity("Lojinha.Models.Cliente", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int?>("EnderecoId");
-
-                    b.Property<int?>("UsuarioId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EnderecoId");
-
-                    b.HasIndex("UsuarioId");
-
-                    b.ToTable("Clientes");
-                });
-
             modelBuilder.Entity("Lojinha.Models.Endereco", b =>
                 {
                     b.Property<int>("Id")
@@ -102,24 +84,6 @@ namespace Lojinha.Migrations
                     b.ToTable("Estados");
                 });
 
-            modelBuilder.Entity("Lojinha.Models.Funcionario", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int?>("NivelId");
-
-                    b.Property<int?>("UsuarioId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NivelId");
-
-                    b.HasIndex("UsuarioId");
-
-                    b.ToTable("Funcionarios");
-                });
-
             modelBuilder.Entity("Lojinha.Models.ItemPedido", b =>
                 {
                     b.Property<int>("Id")
@@ -136,18 +100,6 @@ namespace Lojinha.Migrations
                     b.HasIndex("ProdutoId");
 
                     b.ToTable("ItensPedido");
-                });
-
-            modelBuilder.Entity("Lojinha.Models.Nivel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("NomeNivel");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Niveis");
                 });
 
             modelBuilder.Entity("Lojinha.Models.Produto", b =>
@@ -183,11 +135,17 @@ namespace Lojinha.Migrations
 
                     b.Property<string>("Email");
 
+                    b.Property<int?>("EnderecoId");
+
+                    b.Property<int>("Nivel");
+
                     b.Property<string>("Nome");
 
                     b.Property<string>("Senha");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("EnderecoId");
 
                     b.ToTable("Usuarios");
                 });
@@ -199,33 +157,11 @@ namespace Lojinha.Migrations
                         .HasForeignKey("EstadoId");
                 });
 
-            modelBuilder.Entity("Lojinha.Models.Cliente", b =>
-                {
-                    b.HasOne("Lojinha.Models.Endereco", "Endereco")
-                        .WithMany()
-                        .HasForeignKey("EnderecoId");
-
-                    b.HasOne("Lojinha.Models.Usuario", "Usuario")
-                        .WithMany()
-                        .HasForeignKey("UsuarioId");
-                });
-
             modelBuilder.Entity("Lojinha.Models.Endereco", b =>
                 {
                     b.HasOne("Lojinha.Models.Cidade", "Cidade")
                         .WithMany()
                         .HasForeignKey("CidadeId");
-                });
-
-            modelBuilder.Entity("Lojinha.Models.Funcionario", b =>
-                {
-                    b.HasOne("Lojinha.Models.Nivel", "Nivel")
-                        .WithMany()
-                        .HasForeignKey("NivelId");
-
-                    b.HasOne("Lojinha.Models.Usuario", "Usuario")
-                        .WithMany()
-                        .HasForeignKey("UsuarioId");
                 });
 
             modelBuilder.Entity("Lojinha.Models.ItemPedido", b =>
@@ -240,6 +176,13 @@ namespace Lojinha.Migrations
                     b.HasOne("Lojinha.Models.Categoria", "Categoria")
                         .WithMany()
                         .HasForeignKey("CategoriaId");
+                });
+
+            modelBuilder.Entity("Lojinha.Models.Usuario", b =>
+                {
+                    b.HasOne("Lojinha.Models.Endereco", "Endereco")
+                        .WithMany()
+                        .HasForeignKey("EnderecoId");
                 });
 #pragma warning restore 612, 618
         }

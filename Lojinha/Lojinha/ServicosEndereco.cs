@@ -21,9 +21,9 @@ namespace Lojinha
 
 
         //Metodos de Adição no Banco de Dados Referentes a endereço
-        public void AddCidade(Cliente cliente)
+        public void AddCidade(Cidade cliente)
         {
-            this._contexto.Clientes.Add(cliente);
+            this._contexto.Cidades.Add(cliente);
             this._contexto.SaveChanges();
         }
 

@@ -11,9 +11,7 @@ namespace Lojinha
     {
 
         private readonly BancoContext _contexto;
-
-    
-
+       
         public object Resultado { get; set ; }
 
         public DataService(BancoContext contexto)
@@ -37,9 +35,9 @@ namespace Lojinha
                         on p.Categoria.Id equals c.Id
                         select new
                         {
-                            ID = p.Id,
-                            Nome = p.NomeProduto,
-                            Catego = c.NomeCategoria
+                            ID = p.Id.ToString(),
+                            Nome = p.NomeProduto.ToString(),
+                            Catego = c.NomeCategoria.ToString()
                         }
                         ).ToList();
             
