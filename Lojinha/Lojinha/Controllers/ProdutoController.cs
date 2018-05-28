@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Lojinha.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Lojinha.Controllers
 {
@@ -26,14 +27,15 @@ namespace Lojinha.Controllers
             return View();
             
         }
+
         public IActionResult GerenciarProdutos()
         {
 
-           
-                      
             return View();
+
         }
 
+       
         public IActionResult AdicionaProduto(string nome, string descricao, int quantidade, decimal valor, string arquivo, int categoria)
         {
             Categoria cat = this._dataService.GetCategoriaId(categoria);

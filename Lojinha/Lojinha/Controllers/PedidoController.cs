@@ -18,11 +18,11 @@ namespace Lojinha.Controllers
             this._dataService = dataService;
         }
 
-
         public IActionResult Carrinho()
         {
+            var itensPedido = _dataService.GetItemPedidos();
 
-            return View();
+            return View(itensPedido);
         }
         
         public IActionResult Resumo()

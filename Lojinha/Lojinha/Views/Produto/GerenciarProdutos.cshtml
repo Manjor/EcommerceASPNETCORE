@@ -1,12 +1,13 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "GerenciarProdutos";
 }
 
 
+@foreach(var pn in ViewBag.Prod)
+{
+    
+    <p>
+        Id: @pn.Id
+    </p>
 
-<div>
-
-</div>
-
-
+}

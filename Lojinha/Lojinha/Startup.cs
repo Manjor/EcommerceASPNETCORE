@@ -23,6 +23,9 @@ namespace Lojinha
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddMvc().AddSessionStateTempDataProvider();
+
+            services.AddSession();
             string connectionString =
                 Configuration.GetSection("ConnectionString").GetValue<string>("Default");
             services.AddDbContext<BancoContext>(options =>
@@ -47,6 +50,7 @@ namespace Lojinha
             }
 
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseMvc(routes =>
             {

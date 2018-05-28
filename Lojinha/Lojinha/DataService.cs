@@ -1,4 +1,5 @@
 ﻿using Lojinha.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,12 +21,29 @@ namespace Lojinha
             this._contexto = contexto;
         }
 
+
+
         //Retorna a lista de Produtos
         public List<Produto> GetProdutos()
         {
             return this._contexto.Produtos.ToList();
         }
 
+        public void GetProdutosAll()
+        {
+
+            var prod = (from p in _contexto.Produtos
+                        join c in _contexto.Categorias
+                        on p.Categoria.Id equals c.Id
+                        select new
+                        {
+                            ID = p.Id,
+                            Nome = p.NomeProduto,
+                            Catego = c.NomeCategoria
+                        }
+                        ).ToList();
+            
+        }
 
 
 
@@ -40,7 +58,6 @@ namespace Lojinha
         {
             return this._contexto.Categorias.ToList();
         }
-
 
         //Salva a inserção no banco de dados
         public void InsereProduto(Produto produto)
@@ -73,17 +90,11 @@ namespace Lojinha
             this._contexto.SaveChanges();
         }
 
-
-
-        /**********************************************/
-
-        //Busca os pedidos dentro do banco e cria uma lista deles
         public List<ItemPedido> GetItemPedidos()
         {
             return this._contexto.ItensPedido.ToList();
         }
 
-        //Busca um registro de Pedido do banco, por meio do Id inserido
         public ItemPedido GetPedidoId(int id)
         {
             return this._contexto.ItensPedido.Where(p => p.Id == id).SingleOrDefault();
@@ -91,10 +102,14 @@ namespace Lojinha
 
         public void AddItemPedido(ItemPedido itemPedido)
         {
-            this._contexto.ItensPedido.Add(itemPedido);
-            this._contexto.SaveChanges();
-            
+            throw new NotImplementedException();
         }
+
+
+
+        /**********************************************/
+
+
 
     }
 }

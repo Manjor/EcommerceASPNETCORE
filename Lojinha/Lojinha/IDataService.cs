@@ -16,6 +16,11 @@ namespace Lojinha
         void InsereDB();
         void InsereProduto(Produto produto);
         void AddProduto(Produto produto);
+        List<ItemPedido> GetItemPedidos();
+        ItemPedido GetPedidoId(int id);
+        void AddItemPedido(ItemPedido itemPedido);
+        void GetProdutosAll();
+        
 
 
     }

@@ -35,7 +35,7 @@ namespace Lojinha.Models
             this.PrecoUnitario = produto.Valor;
         }
 
-
+        public ItemPedido() { }
 
 
     }
