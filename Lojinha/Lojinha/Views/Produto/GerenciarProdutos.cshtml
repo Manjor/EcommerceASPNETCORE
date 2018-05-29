@@ -3,11 +3,40 @@
 }
 
 
-@foreach(var pn in ViewBag.Prod)
-{
-    
-    <p>
-        Id: @pn.Id
-    </p>
 
-}
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-10 col-md-offset-1">
+
+            <table class="table table-responsive">
+                <tr>
+                    <td>Nome Produto</td>
+                    <td>Descricao</td>
+                    <td>Quantidade</td>
+                    <td>Valor</td>
+                    <td></td>
+                </tr>
+                @foreach (var p in ViewBag.Produtos)
+                {
+                <tr>
+                    <td>@p.NomeProduto</td>
+                    <td>@p.Descricao</td>
+                    <td>@p.Quantidade</td>
+                    <td>@p.Valor</td>
+                    <td>
+                        <form action="RemoveProduto" method="post">
+                            <input hidden id="nome" name="nome" value="@p.NomeProduto" />
+                            <input type="submit" name="remover" value="X" />
+                        </form>
+                    </td>
+                </tr>
+                    
+                 }
+            </table>
+        </div>
+
+    </div>
+
+</div>

@@ -43,8 +43,6 @@ namespace Lojinha
             
         }
 
-
-
         //Retorna a Categoria desejada pelo Id 
         public Categoria GetCategoriaId(int id)
         {
@@ -106,6 +104,16 @@ namespace Lojinha
 
 
         /**********************************************/
+        //Metodos de Remoção
+
+        public void RemoveProduto(string nome)
+        {
+
+            Produto produto = _contexto.Produtos.Where(p => p.NomeProduto == nome).SingleOrDefault();
+            
+            _contexto.Remove(produto);
+            _contexto.SaveChanges();
+        }
 
 
 

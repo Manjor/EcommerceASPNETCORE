@@ -31,7 +31,9 @@ namespace Lojinha.Controllers
         public IActionResult GerenciarProdutos()
         {
 
-           
+
+            IList<Produto> produtos = this._dataService.GetProdutos();
+            ViewBag.Produtos = produtos;
             return View();
 
         }
@@ -45,6 +47,13 @@ namespace Lojinha.Controllers
             _dataService.AddProduto(produto);
             
             return RedirectToAction("CadastroProduto");
+        }
+
+        public IActionResult RemoveProduto(string nome)
+        {
+            _dataService.RemoveProduto(nome);
+
+            return RedirectToAction("GerenciarProdutos");
         }
     }
 }

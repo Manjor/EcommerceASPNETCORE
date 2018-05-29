@@ -6,14 +6,13 @@ using Lojinha.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Session;
 
 namespace Lojinha.Controllers
 {
     public class UsuarioController : Controller
     {
-
-        string login;
-        
+ 
         private readonly IServicosUsuario _usuarioServico;
         private readonly IServicosEndereco _enderecoServico;
         public UsuarioController(IServicosUsuario servicosUsuario, IServicosEndereco enderecoServico)
@@ -55,37 +54,26 @@ namespace Lojinha.Controllers
             return View(/*usuario*/);
         }
 
-
-        public IActionResult VerificaSessao()
-        {
-            if(HttpContext.Session.IsAvailable != false)
-            {
-                Console.WriteLine("Voce ja está logado");
-                return Redirect("ContaUsuario");
-            }
-            else
-            {
-                return Redirect("Login");
-            }
-            
-        }
+        
         public IActionResult FinalizaSessao()
         {
-            HttpContext.Session.Remove("manoeltavares.jr@gmail.com");
 
+            
             return Redirect("Login");
 
         }
 
         public IActionResult AutenticarLogin(string email,string senha)
         {
-            login = email;
+
             if (this._usuarioServico.GetLogin(email, senha) != null)
             {
-                
-                HttpContext.Session.SetString(login,"logado");
-                Console.WriteLine("Logado com Sucesso");
-                return RedirectToAction("ContaUsuario", new { msg = "Logado com Sucesso - Bem Vindo"});
+
+
+                this.HttpContext.Session.SetString(email,"ativado");
+               
+                    Console.WriteLine("Logado com Sucesso");
+                    return RedirectToAction("ContaUsuario", new { msg = "Logado com Sucesso - Bem Vindo" });
             }
             else
             {
