@@ -40,6 +40,14 @@ namespace Lojinha
                             Catego = c.NomeCategoria.ToString()
                         }
                         ).ToList();
+            List<string> lista = new List<string>();
+
+            foreach (var pr in prod) {
+
+                lista.Add(pr.ID.ToString());
+                
+            }
+           
             
         }
 

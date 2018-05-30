@@ -18,10 +18,10 @@
                     <td>Valor</td>
                     <td></td>
                 </tr>
-                @foreach (var p in ViewBag.Lista)
+                @foreach (var p in ViewBag.Produtos)
                 {
                 <tr>
-                    <td>@p.Nome</td>
+                    <td>@p.NomeProduto</td>
                     <td>@p.Descricao</td>
                     <td>@p.Quantidade</td>
                     <td>@p.Valor</td>
@@ -31,7 +31,7 @@
                             <input type="submit" name="remover" value="X" />
                         </form>
                         <form action="AlteraProduto" method="post">
-                            <input  name="id" value="@p.ID" hidden />
+                            <input  name="id" value="@p.Id" hidden />
                             <input type="submit" name="alterar" value="Alterar" />
                         </form>
                     </td>

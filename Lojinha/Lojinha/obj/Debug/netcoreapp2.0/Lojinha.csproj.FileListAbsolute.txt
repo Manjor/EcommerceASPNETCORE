@@ -31,3 +31,14 @@ C:\Users\MANOEL\Documents\GitHub\Loja-ASP\Lojinha\Lojinha\bin\Debug\netcoreapp2.
 C:\Users\MANOEL\Documents\GitHub\Loja-ASP\Lojinha\Lojinha\bin\Debug\netcoreapp2.0\Lojinha.runtimeconfig.dev.json
 C:\Users\MANOEL\Documents\GitHub\Loja-ASP\Lojinha\Lojinha\bin\Debug\netcoreapp2.0\Lojinha.dll
 C:\Users\MANOEL\Documents\GitHub\Loja-ASP\Lojinha\Lojinha\bin\Debug\netcoreapp2.0\Lojinha.pdb
+C:\xampp\htdocs\Loja-ASP\Lojinha\Lojinha\bin\Debug\netcoreapp2.0\Lojinha.deps.json
+C:\xampp\htdocs\Loja-ASP\Lojinha\Lojinha\bin\Debug\netcoreapp2.0\Lojinha.runtimeconfig.json
+C:\xampp\htdocs\Loja-ASP\Lojinha\Lojinha\bin\Debug\netcoreapp2.0\Lojinha.runtimeconfig.dev.json
+C:\xampp\htdocs\Loja-ASP\Lojinha\Lojinha\bin\Debug\netcoreapp2.0\Lojinha.dll
+C:\xampp\htdocs\Loja-ASP\Lojinha\Lojinha\bin\Debug\netcoreapp2.0\Lojinha.pdb
+C:\xampp\htdocs\Loja-ASP\Lojinha\Lojinha\obj\Debug\netcoreapp2.0\Lojinha.csprojResolveAssemblyReference.cache
+C:\xampp\htdocs\Loja-ASP\Lojinha\Lojinha\obj\Debug\netcoreapp2.0\Lojinha.csproj.CoreCompileInputs.cache
+C:\xampp\htdocs\Loja-ASP\Lojinha\Lojinha\obj\Debug\netcoreapp2.0\Lojinha.AssemblyInfoInputs.cache
+C:\xampp\htdocs\Loja-ASP\Lojinha\Lojinha\obj\Debug\netcoreapp2.0\Lojinha.AssemblyInfo.cs
+C:\xampp\htdocs\Loja-ASP\Lojinha\Lojinha\obj\Debug\netcoreapp2.0\Lojinha.dll
+C:\xampp\htdocs\Loja-ASP\Lojinha\Lojinha\obj\Debug\netcoreapp2.0\Lojinha.pdb
