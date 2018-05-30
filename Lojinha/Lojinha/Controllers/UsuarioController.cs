@@ -12,7 +12,11 @@ namespace Lojinha.Controllers
 {
     public class UsuarioController : Controller
     {
- 
+
+        string NomeSessao = "_Nome";
+        const int IdSessao = 0;
+       
+
         private readonly IServicosUsuario _usuarioServico;
         private readonly IServicosEndereco _enderecoServico;
         public UsuarioController(IServicosUsuario servicosUsuario, IServicosEndereco enderecoServico)
@@ -26,7 +30,6 @@ namespace Lojinha.Controllers
         {
             return View();
         }
-
         public IActionResult Login()
         {
             return View();
@@ -54,25 +57,51 @@ namespace Lojinha.Controllers
             return View(/*usuario*/);
         }
 
-        
+        public IActionResult VerificaSessao()
+        {
+            if (NomeSessao.Equals("_Nome"))
+            {
+                Console.WriteLine("Minha Sessao: " + NomeSessao);
+                return Redirect("Login");
+            }
+            else
+            {
+                Console.WriteLine("Nome Sessao " + NomeSessao);
+                return Redirect("ContaUsuario");
+            }
+
+        }
+
         public IActionResult FinalizaSessao()
         {
+            HttpContext.Session.Clear();
 
-            
             return Redirect("Login");
 
         }
 
+
+        public IActionResult GerenciarUsuarios()
+        {
+
+            var lista = _usuarioServico.GetFuncionarios();
+
+            ViewBag.Usuarios = lista;
+            
+            return View();
+
+        }
         public IActionResult AutenticarLogin(string email,string senha)
         {
 
             if (this._usuarioServico.GetLogin(email, senha) != null)
             {
+                    NomeSessao = email;
+                    HttpContext.Session.SetString(NomeSessao, email);
+                
+                    
+                    Console.WriteLine("Logado com Sucesso" + NomeSessao);
 
-
-                this.HttpContext.Session.SetString(email,"ativado");
-               
-                    Console.WriteLine("Logado com Sucesso");
                     return RedirectToAction("ContaUsuario", new { msg = "Logado com Sucesso - Bem Vindo" });
             }
             else
@@ -95,6 +124,20 @@ namespace Lojinha.Controllers
             _usuarioServico.AddUsuario(usuario);
 
             return Redirect("CadastroCliente");
+        }
+        public IActionResult AdicionaFuncionario
+            (string nome, string email, string cpf, string senha, int nivel, string logradouro, string bairro, string complemento, string numero, string cidade, int estado)
+        {
+
+            Estado est = _enderecoServico.GetEstadoId(estado);
+            Cidade cid = new Cidade(cidade, est);
+            Endereco endereco = new Endereco(logradouro, bairro, complemento, numero, cid);
+
+            Usuario usuario = new Usuario(nome, email, cpf, senha, nivel, endereco);
+
+            _usuarioServico.AddUsuario(usuario);
+
+            return Redirect("CadastroFuncionario");
         }
     }
 }

@@ -20,7 +20,8 @@ namespace Lojinha
         ItemPedido GetPedidoId(int id);
         void AddItemPedido(ItemPedido itemPedido);
         void GetProdutosAll();
-        void RemoveProduto(string nome);
+        void RemoveProduto(int id);
+        void AlteraProduto(int id, Produto produto);
 
 
 

@@ -5,11 +5,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Lojinha.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace Lojinha.Controllers
 {
     public class HomeController : Controller
     {
+
+        
         private readonly IDataService _dataService;
 
 

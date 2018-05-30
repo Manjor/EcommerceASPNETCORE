@@ -27,13 +27,35 @@ namespace Lojinha.Controllers
             return View();
             
         }
+        //Metodo de remoção de produto
+        public IActionResult RemoveProduto(int id)
+        {
+            this._dataService.RemoveProduto(id);
 
+            return Redirect("GerenciarProdutos");
+        }
+
+        public IActionResult AlteraProduto(int id)
+        {
+            return View(id);
+        }
+
+        public IActionResult Alterar(int id, string nome, string descricao, int quantidade, decimal valor, string arquivo, int categoria)
+        {
+            Categoria cat = this._dataService.GetCategoriaId(categoria);
+            Produto produto = new Produto(nome, descricao, quantidade, valor, arquivo, cat);
+
+            this._dataService.AlteraProduto(id, produto);
+
+            return Redirect("AlteraProduto");
+        }
         public IActionResult GerenciarProdutos()
         {
 
 
             IList<Produto> produtos = this._dataService.GetProdutos();
             ViewBag.Produtos = produtos;
+
             return View();
 
         }
@@ -49,11 +71,6 @@ namespace Lojinha.Controllers
             return RedirectToAction("CadastroProduto");
         }
 
-        public IActionResult RemoveProduto(string nome)
-        {
-            _dataService.RemoveProduto(nome);
-
-            return RedirectToAction("GerenciarProdutos");
-        }
+        
     }
 }

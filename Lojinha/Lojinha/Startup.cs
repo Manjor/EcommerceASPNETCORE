@@ -32,7 +32,6 @@ namespace Lojinha
             services.AddSession( options =>
             {
                 options.IdleTimeout = TimeSpan.FromMilliseconds(30);
-                options.Cookie.HttpOnly = true;
             }
             
             );

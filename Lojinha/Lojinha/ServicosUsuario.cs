@@ -29,7 +29,15 @@ namespace Lojinha
 
         public Usuario GetLogin(string email , string senha)
         {
-            return _contexto.Usuarios.Where(u => u.Email == email && u.Senha == senha).Single();
+            try
+            {
+
+                return _contexto.Usuarios.Where(u => u.Email == email && u.Senha == senha).Single();
+            }
+            catch (Exception erro)
+            {
+                return null;
+            }
         }
 
         ///////////////////////////////////////////////////////
@@ -49,5 +57,52 @@ namespace Lojinha
             this._contexto.Usuarios.Add(usuario);
             this._contexto.SaveChanges();
         }
+
+        public List<Usuario> GetFuncionarios()
+        {
+            var pegaFuncionarios = from u in _contexto.Usuarios where u.Nivel == 1 select u;
+            List<Usuario> funcionarios = new List<Usuario>();
+
+            foreach (var fun in pegaFuncionarios)
+            {
+
+                funcionarios.Add(fun);
+            }
+            return funcionarios;
+
+        }
+
+
+        public void RemoveUsuario(int id,Usuario usuario)
+        {
+
+            var pegaUsuario = from u in _contexto.Usuarios where u.Id == id select u;
+
+            foreach (var del in pegaUsuario)
+            {
+                _contexto.Usuarios.Remove(del);
+            }
+            try
+            {
+                _contexto.SaveChanges();
+
+            }
+            catch(Exception erro)
+            {
+                Console.WriteLine("Não Foi possivel remover o Usuario. Erro :" + erro);
+            }
+
+
+
+
+
+
+
+
+        }
+
+        
+
+
     }
 }

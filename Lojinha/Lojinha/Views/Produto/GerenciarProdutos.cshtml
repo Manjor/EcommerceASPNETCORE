@@ -27,15 +27,20 @@
                     <td>@p.Valor</td>
                     <td>
                         <form action="RemoveProduto" method="post">
-                            <input hidden id="nome" name="nome" value="@p.NomeProduto" />
+                            <input hidden id="nome" name="id" value="@p.Id" />
                             <input type="submit" name="remover" value="X" />
+                        </form>
+                        <form action="AlteraProduto" method="post">
+                            <input  name="id" value="@p.Id" hidden />
+                            <input type="submit" name="alterar" value="Alterar" />
                         </form>
                     </td>
                 </tr>
-                    
                  }
             </table>
+            <a asp-controller="Produto" asp-action="CadastroProduto">Cadastrar Produtos</a>
         </div>
+
 
     </div>
 

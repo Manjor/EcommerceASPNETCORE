@@ -106,13 +106,60 @@ namespace Lojinha
         /**********************************************/
         //Metodos de Remoção
 
-        public void RemoveProduto(string nome)
+        public void RemoveProduto(int id)
         {
 
-            Produto produto = _contexto.Produtos.Where(p => p.NomeProduto == nome).SingleOrDefault();
-            
-            _contexto.Remove(produto);
-            _contexto.SaveChanges();
+            var delete = from p in _contexto.Produtos where p.Id == id select p;
+            foreach (var del in delete)
+            {
+                _contexto.Produtos.Remove(del);
+            }
+            try
+            {
+                _contexto.SaveChanges();
+            }
+            catch (Exception erro)
+            {
+                Console.WriteLine("Não foi possivel Fazer a remoção. Erro" + erro);
+            }
+
+
+        }
+
+        //Metodo de Alteração de Produto
+        public void AlteraProduto(int id,Produto produto)
+        {
+
+            //Busca o Produto correspondente no Banco de Dados
+            var pegaProduto = from p in _contexto.Produtos where p.Id == id select p;
+
+            string nome = produto.NomeProduto;
+            string descricao = produto.Descricao;
+            int quantidade = produto.Quantidade;
+            decimal valor = produto.Valor;
+
+            foreach (Produto pro in pegaProduto)
+            {
+
+                pro.NomeProduto = nome;
+                pro.Descricao = descricao;
+                pro.Quantidade = quantidade;
+                pro.Valor = valor;
+            }
+
+            try {
+                _contexto.SaveChanges();
+            }
+            catch(Exception erro)
+            {
+                Console.WriteLine("Não foi possivel fazer a alteração no Produto. Erro: " + erro);
+            }
+
+
+
+
+
+
         }
 
 

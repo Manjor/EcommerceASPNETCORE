@@ -11,6 +11,7 @@ namespace Lojinha
         //Interface de Usuarios
         //Metodos de Visualização Geral
         List<Usuario> GetUsuarios();
+        List<Usuario> GetFuncionarios();
 
 
         //Metodos de Adição nas Tabelas
