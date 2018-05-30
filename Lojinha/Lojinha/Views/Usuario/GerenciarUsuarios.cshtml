@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "Usuarios";
+}
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-10 col-md-offset-1">
+
+            <table class="table table-responsive">
+                <tr>
+                    <td>Nome Funcionario</td>
+                    <td>Email</td>
+                    <td>Cpf</td>
+                </tr>
+                @foreach (var u in ViewBag.Usuarios)
+                {
+                    <tr>
+                        <td>@u.Nome</td>
+                        <td>@u.Email</td>
+                        <td>@u.Cpf</td>
+                        <td>
+
+                            <form action="RemoveUsuario" method="post">
+                                <input hidden id="id" name="id" value="@u.Id" />
+                                <input type="submit" name="remover" value="X" />
+                            </form>
+                            
+                        </td>
+                    </tr>
+                }
+            </table>
+            <a asp-controller="Usuario" asp-action="CadastroFuncionario">Cadastrar Funcionario</a>
+        </div>
+
+
+    </div>
+
+</div>

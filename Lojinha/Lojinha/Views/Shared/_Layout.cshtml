@@ -3,96 +3,52 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Loja Hardware</title>
+    <title>@ViewData["Title"]</title>
+    <link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-        <link href="https://fonts.googleapis.com/css?family=Advent+Pro" rel="stylesheet">
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
 </head>
 <body>
-    <nav id="barra" class="navbar well-sm">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar bg-success"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">LJX</a>
-            </div>
-            <div class="navbar-collapse collapse">
+
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-lg">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#divCollapse"
+                    aria-controls="divCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><img src="img/menu.png" alt=""></span>
+            </button>
+            <div id="divCollapse" class="navbar-collapse collapse">
+
+                <a href="#" class="navbar-brand">LJx Hardware</a>
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a></li>
-                    <li><a asp-area="" asp-controller="Produto" asp-action="Produtos">Produtos</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">Sobre</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contato</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Produto" asp-action="Produtos">Produtos</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contato</a></li>
                 </ul>
-                <div class=" navbar-text pull-right">
-                    <a asp-area="" asp-controller="Conta" asp-action="Login" class="btn-link">Fazer Login</a>
+                <div class="navbar-right ml-auto">
+                    <a class="nav-link" asp-area="" asp-controller="Usuario" asp-action="VerificaSessao" class="btn-link">Fazer Login</a>
                 </div>
             </div>
-            
-        </div>
-    </nav>
+        </nav>
+    </header>
+
     <div class="body-content">
         @RenderBody()
 
-        <footer class="container-fluid">
+        <footer class="container">
 
             <div class="row">
-
-                <div class="col-md-12 bg-success">
-                    <h3>Muito Obrigado por Visitar a LJx Hardwares!</h3>
+                <div class="col-md-10 col-md-offset-1 text-center">
+                    <h5>Copyright &copy; 2018 - Developed By Manoel Tavares</h5>
                 </div>
-                <div class="col-md-3">
-                    <h4 class="text-center">LJx Hardwares</h4>
-                </div>
-                <div class="col-md-3">
-                    <h4 class="text-center">Produtos</h4>
-                </div>
-                <div class="col-md-3">
-                    <h4 class="text-center">Links Uteis</h4>
-                </div>
-                <div class="col-md-3">
-                    <h4 class="text-center">Contato</h4>
-                </div>
-
-
             </div>
 
         </footer>
-        
+
     </div>
-
-
-
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
-
-    @RenderSection("Scripts", required: false)
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewData["Title"] = "CadastroProduto";
+}
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-12 text-center">
+            <h1>Cadastrar Produto</h1>
+        </div>
+        <form action="/Produto/AdicionaProduto" method="post">
+
+            <!--Grupo de entrada para Nome do Produto-->
+            <div class="form-group col-sm-6 col-sm-offset-3">
+                <label for="nome">Nome do Produto:</label>
+                <input class="form-control" id="nome" name="nome" required/>
+            </div>
+
+            <!--Grupo de entrada para a descrição do produto-->
+            <div class="form-group col-sm-6 col-sm-offset-3">
+                <label for="descricao">Descricao:</label> 
+                <input class="form-control" id="descricao" name="descricao" required />
+            </div>
+
+            <!--Grupo de entrada para a quantidade do Produto-->
+            <div class="form-group col-sm-3 col-sm-offset-3">
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" class="form-control" id="quantidade" name="quantidade" required />
+            </div>
+
+            <!--Grupo de entrada para o valor do produto-->
+            <div class="form-group col-sm-3 ">
+                <label for="valor">Valor:</label>
+                <input class="form-control" id="valor" name="valor" required />
+            </div>
+
+            <!--Grupo de entrada para o arquivo do Produto-->
+            <div class="form-group col-sm-6 col-sm-offset-3">
+                <label for="arquivo">Arquivo: </label>
+                <input class="form-control" id="arquivo" name="arquivo" required />
+            </div>
+
+            <div class="form-group col-sm-6 col-sm-offset-3">
+                <label for="categoria">Categoria:</label>
+                <select class="form-control" id="categoria" name="categoria">
+                    @foreach (var categoria in ViewBag.Categorias)
+                    {
+
+                        <option value="@categoria.Id">@categoria.NomeCategoria</option>
+
+                    }
+
+                </select>
+            </div>
+            <div class="col-md-12"></div>
+            <div class="form-group col-sm-4 col-sm-offset-4 ">
+                <input class="btn btn-primary btn-block btn-lg" type="submit" name="botao-add" value="Cadastro" />
+            </div>
+        </form>
+    </div>
+
+</div>

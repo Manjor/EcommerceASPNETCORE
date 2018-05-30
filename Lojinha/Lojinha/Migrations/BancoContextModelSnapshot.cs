@@ -32,6 +32,58 @@ namespace Lojinha.Migrations
                     b.ToTable("Categorias");
                 });
 
+            modelBuilder.Entity("Lojinha.Models.Cidade", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("EstadoId");
+
+                    b.Property<string>("NomeCidade");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EstadoId");
+
+                    b.ToTable("Cidades");
+                });
+
+            modelBuilder.Entity("Lojinha.Models.Endereco", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Bairro");
+
+                    b.Property<int?>("CidadeId");
+
+                    b.Property<string>("Complemento");
+
+                    b.Property<string>("Logradouro");
+
+                    b.Property<string>("Numero");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CidadeId");
+
+                    b.ToTable("Enderecos");
+                });
+
+            modelBuilder.Entity("Lojinha.Models.Estado", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("NomeEstado");
+
+                    b.Property<string>("Uf");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Estados");
+                });
+
             modelBuilder.Entity("Lojinha.Models.ItemPedido", b =>
                 {
                     b.Property<int>("Id")
@@ -74,6 +126,44 @@ namespace Lojinha.Migrations
                     b.ToTable("Produtos");
                 });
 
+            modelBuilder.Entity("Lojinha.Models.Usuario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Cpf");
+
+                    b.Property<string>("Email");
+
+                    b.Property<int?>("EnderecoId");
+
+                    b.Property<int>("Nivel");
+
+                    b.Property<string>("Nome");
+
+                    b.Property<string>("Senha");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EnderecoId");
+
+                    b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("Lojinha.Models.Cidade", b =>
+                {
+                    b.HasOne("Lojinha.Models.Estado", "Estado")
+                        .WithMany()
+                        .HasForeignKey("EstadoId");
+                });
+
+            modelBuilder.Entity("Lojinha.Models.Endereco", b =>
+                {
+                    b.HasOne("Lojinha.Models.Cidade", "Cidade")
+                        .WithMany()
+                        .HasForeignKey("CidadeId");
+                });
+
             modelBuilder.Entity("Lojinha.Models.ItemPedido", b =>
                 {
                     b.HasOne("Lojinha.Models.Produto", "Produto")
@@ -86,6 +176,13 @@ namespace Lojinha.Migrations
                     b.HasOne("Lojinha.Models.Categoria", "Categoria")
                         .WithMany()
                         .HasForeignKey("CategoriaId");
+                });
+
+            modelBuilder.Entity("Lojinha.Models.Usuario", b =>
+                {
+                    b.HasOne("Lojinha.Models.Endereco", "Endereco")
+                        .WithMany()
+                        .HasForeignKey("EnderecoId");
                 });
 #pragma warning restore 612, 618
         }

@@ -8,13 +8,13 @@ namespace Lojinha.Models
     public class Produto
     {
 
-        public int Id { get; private set; }
-        public string NomeProduto { get; private set; }
-        public string Descricao { get; private set; }
-        public int Quantidade { get; private set; }
-        public decimal Valor { get; private set; }
-        public string Arquivo { get; private set; }
-        public Categoria Categoria { get; private set; }
+        public int Id { get;  set; }
+        public string NomeProduto { get;  set; }
+        public string Descricao { get; set; }
+        public int Quantidade { get;  set; }
+        public decimal Valor { get;  set; }
+        public string Arquivo { get; set; }
+        public Categoria Categoria { get; set; }
 
 
 
@@ -37,6 +37,7 @@ namespace Lojinha.Models
             this.Categoria = categoria;
         }
 
+        public Produto() { }
 
         /*
          https://msdn.microsoft.com/pt-br/library/jj128159.aspx

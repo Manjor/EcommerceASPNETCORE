@@ -12,6 +12,10 @@ namespace Lojinha
 {
     public class Startup
     {
+
+        
+
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -23,11 +27,23 @@ namespace Lojinha
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddDistributedMemoryCache();
+            services.AddSession( options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMilliseconds(30);
+            }
+            
+            );
+            
+
             string connectionString =
                 Configuration.GetSection("ConnectionString").GetValue<string>("Default");
             services.AddDbContext<BancoContext>(options =>
             options.UseSqlServer(connectionString));
             services.AddScoped<IDataService, DataService>();
+            services.AddScoped<IServicosUsuario, ServicosUsuario>();
+            services.AddScoped<IServicosEndereco, ServicosEndereco>();
 
         }
 
@@ -45,6 +61,7 @@ namespace Lojinha
             }
 
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
