@@ -12,17 +12,13 @@
 
         </div>
         <div class="col-sm-12 text-center my-3">
-            <ul class="nav nav-justified p-2 bg-dark shadow">
-                <li class="nav-item"><a class="nav-link" href="#">PlacaMãe</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Processadores</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Memórias</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">HD</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">SSD</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">VGA</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Cooler</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Fontes</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Adaptadores</a></li>
-            </ul>
+                <form class="nav nav-justified p-2 bg-dark" action="/Home/ProdutoCategoria" method="post">
+                    <li class="nav-item"><input class="nav-link btn btn-dark" type="submit" name="nomecategoria" value="PLACA MAE" /></li>
+                    <li class="nav-item"><input class="nav-link btn btn-dark" type="submit" name="nomecategoria" value="PROCESSADOR" /></li>
+                    <li class="nav-item"><input class="nav-link btn btn-dark" type="submit" name="nomecategoria" value="MEMORIA" /></li>
+                    <li class="nav-item"><input class="nav-link btn btn-dark" type="submit" name="nomecategoria" value="DISCO RIGIDO" /></li>
+                    <li class="nav-item"><input class="nav-link btn btn-dark" type="submit" name="nomecategoria" value="COOLER" /></li>
+                </form>
         </div>
         @foreach (var produto in ViewBag.Produtos)
     {

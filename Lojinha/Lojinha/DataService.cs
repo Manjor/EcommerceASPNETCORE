@@ -47,8 +47,26 @@ namespace Lojinha
                 lista.Add(pr.ID.ToString());
                 
             }
-           
-            
+        }
+
+        public List<Produto> ProdutosCategoria(string nomecategoria)
+        {
+            var prod = (from p in _contexto.Produtos
+                        where p.Categoria.NomeCategoria == nomecategoria
+                        select p
+                        ).ToList();
+
+            List<Produto> lista = new List<Produto>();
+
+
+            foreach (var pr in prod)
+            {
+                lista.Add(pr);
+            }
+
+            return lista;
+
+
         }
 
         //Retorna a Categoria desejada pelo Id 
@@ -93,7 +111,6 @@ namespace Lojinha
             }
             this._contexto.SaveChanges();
         }
-
         public List<ItemPedido> GetItemPedidos()
         {
             return this._contexto.ItensPedido.ToList();
@@ -108,12 +125,8 @@ namespace Lojinha
         {
             throw new NotImplementedException();
         }
-
-
-
         /**********************************************/
         //Metodos de Remoção
-
         public void RemoveProduto(int id)
         {
 
@@ -130,8 +143,6 @@ namespace Lojinha
             {
                 Console.WriteLine("Não foi possivel Fazer a remoção. Erro" + erro);
             }
-
-
         }
 
         //Metodo de Alteração de Produto
@@ -162,12 +173,6 @@ namespace Lojinha
             {
                 Console.WriteLine("Não foi possivel fazer a alteração no Produto. Erro: " + erro);
             }
-
-
-
-
-
-
         }
 
 

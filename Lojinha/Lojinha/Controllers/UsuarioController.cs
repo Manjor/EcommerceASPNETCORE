@@ -12,9 +12,6 @@ namespace Lojinha.Controllers
 {
     public class UsuarioController : Controller
     {
-
-        string NomeSessao = "_Nome";
-        const int IdSessao = 0;
        
 
         private readonly IServicosUsuario _usuarioServico;
@@ -59,17 +56,16 @@ namespace Lojinha.Controllers
 
         public IActionResult VerificaSessao()
         {
-            if (NomeSessao.Equals("_Nome"))
+            var sessao = this.HttpContext.Session.GetInt32("logado");
+            if (sessao != null)
             {
-                Console.WriteLine("Minha Sessao: " + NomeSessao);
-                return Redirect("Login");
-            }
-            else
-            {
-                Console.WriteLine("Nome Sessao " + NomeSessao);
-                return Redirect("ContaUsuario");
-            }
 
+                return RedirectToAction("/Home/Index");
+
+            }
+            else {
+                return RedirectToAction("Login");
+            }
         }
 
         public IActionResult FinalizaSessao()
@@ -79,7 +75,6 @@ namespace Lojinha.Controllers
             return Redirect("Login");
 
         }
-
 
         public IActionResult GerenciarUsuarios()
         {
@@ -94,15 +89,26 @@ namespace Lojinha.Controllers
         public IActionResult AutenticarLogin(string email,string senha)
         {
 
-            if (this._usuarioServico.GetLogin(email, senha) != null)
-            {
-                    NomeSessao = email;
-                    HttpContext.Session.SetString(NomeSessao, email);
-                
-                    
-                    Console.WriteLine("Logado com Sucesso" + NomeSessao);
+            Usuario usuario = this._usuarioServico.GetLogin(email, senha);
 
-                    return RedirectToAction("ContaUsuario", new { msg = "Logado com Sucesso - Bem Vindo" });
+
+            if (usuario != null && usuario.Nivel == 1)
+            {
+                this.HttpContext.Session.SetInt32("logado", 1);
+
+                 return RedirectToAction("Administrador",usuario);
+            }
+            if (usuario != null && usuario.Nivel == 2)
+            {
+                this.HttpContext.Session.SetInt32("logado", 1);
+                
+                return RedirectToAction("Gerencia");
+            }
+            if(usuario != null && usuario.Nivel == 0)
+            {
+                this.HttpContext.Session.SetInt32("logado", 1);
+               
+                return RedirectToAction("Index", "Home");
             }
             else
             {
@@ -110,7 +116,14 @@ namespace Lojinha.Controllers
             }
         }
 
-
+        public IActionResult Gerencia()
+        {
+            return View();
+        }
+        public IActionResult Administrador()
+        {
+            return View();
+        }
         public IActionResult AdicionaCliente
             (string nome, string email, string cpf, string senha,int nivel, string logradouro, string bairro, string complemento, string numero, string cidade, int estado)
         {

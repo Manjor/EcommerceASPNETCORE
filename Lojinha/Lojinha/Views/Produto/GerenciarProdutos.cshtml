@@ -8,10 +8,10 @@
 
     <div class="row">
 
-        <div class="col-md-10 col-md-offset-1">
-
-            <table class="table table-responsive">
-                <tr>
+        <div class="col-md-10 mx-auto my-3">
+            <h3 class="text-center my-2">Gerenciamento de Produtos</h3>
+            <table class="table table-responsive-md table-bordered">
+                <tr class="text-primary">
                     <td>Nome Produto</td>
                     <td>Descricao</td>
                     <td>Quantidade</td>
@@ -24,15 +24,15 @@
                     <td>@p.NomeProduto</td>
                     <td>@p.Descricao</td>
                     <td>@p.Quantidade</td>
-                    <td>@p.Valor</td>
+                    <td>R$ @p.Valor</td>
                     <td>
-                        <form action="RemoveProduto" method="post">
+                        <form class="my-1" action="RemoveProduto" method="post">
                             <input hidden id="nome" name="id" value="@p.Id" />
-                            <input type="submit" name="remover" value="X" />
+                            <input class="btn btn-danger btn-block" type="submit" name="remover" value="X" />
                         </form>
-                        <form action="AlteraProduto" method="post">
+                        <form action="AlteraProduto" method="get">
                             <input  name="id" value="@p.Id" hidden />
-                            <input type="submit" name="alterar" value="Alterar" />
+                            <input class="btn btn-primary btn-block" type="submit" name="alterar" value="Alterar" />
                         </form>
                     </td>
                 </tr>

@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewData["Title"] = "ProdutoCategoria";
+}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12 text-center py-3">
+            <h1 class="my-1">Ljx Hardware</h1>
+            <p>O Maior e-Commerce da Internet</p>
+
+        </div>
+        <div class="col-sm-12 my-3">
+            <form class="nav nav-justified text-center p-2 bg-dark" action="/Home/ProdutoCategoria" method="post">
+                <li class="nav-item"><input class="nav-link btn btn-dark" type="submit" name="nomecategoria" value="PLACA MAE" /></li>
+                <li class="nav-item"><input class="nav-link btn btn-dark" type="submit" name="nomecategoria" value="PROCESSADOR" /></li>
+                <li class="nav-item"><input class="nav-link btn btn-dark" type="submit" name="nomecategoria" value="MEMORIA" /></li>
+                <li class="nav-item"><input class="nav-link btn btn-dark" type="submit" name="nomecategoria" value="DISCO RIGIDO" /></li>
+                <li class="nav-item"><input class="nav-link btn btn-dark" type="submit" name="nomecategoria" value="COOLER" /></li>
+            </form>
+        </div>
+        @foreach (var produto in ViewBag.Produtos)
+        {
+
+            <div class="col-10 col-sm-6 col-md-4 col-lg-3 my-2 mx-auto">
+                <div class="card shadow-lg">
+                    <div class="card-header">
+                        <img src="~/images/placa.jpg" class="img-fluid" alt="Alternate Text" />
+                    </div>
+                    <div class="card-body">
+                        <h5>@produto.NomeProduto</h5>
+                        <p>@produto.Descricao</p>
+                        <p>R$ @produto.Valor no Boleto com 5% de Desconto</p>
+                        <p>Em até 8 vezes de R$ @(produto.Valor / 8)</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class=" btn btn-success">Comprar Agora</button>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="col-12 my-5 border-bottom">
+            <h3 class="text-center">Promoções</h3>
+        </div>
+        <div class="col-md-3">
+            <img src="~/images/compre1.png" class="img-fluid" />
+        </div>
+        <div class="col-md-3">
+            <img src="~/images/15% Desconto.png" class="img-fluid" />
+        </div>
+        <div class="col-md-3">
+            <img src="~/images/compre1.png" class="img-fluid" />
+        </div>
+        <div class="col-md-3">
+            <img src="~/images/15% Desconto.png" class="img-fluid" />
+        </div>
+
+
+    </div>
+</div>
+
+
+

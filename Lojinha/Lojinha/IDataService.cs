@@ -22,6 +22,7 @@ namespace Lojinha
         void GetProdutosAll();
         void RemoveProduto(int id);
         void AlteraProduto(int id, Produto produto);
+        List<Produto> ProdutosCategoria(string nomecategoria);
 
 
 

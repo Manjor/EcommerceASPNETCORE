@@ -33,7 +33,22 @@ namespace Lojinha.Controllers
             return View();
 
         }
-
+        public IActionResult ProdutoCategoria(string nomecategoria)
+        {
+            if (nomecategoria.Equals(null))
+            {
+                IList<Produto> produtosGerais = this._dataService.GetProdutos();
+                ViewBag.Produtos = produtosGerais;
+                return View();
+            }
+            else
+            {
+                IList<Produto> produtos = this._dataService.ProdutosCategoria(nomecategoria);
+                ViewBag.Produtos = produtos;
+                return View();
+            }
+        }
+        
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

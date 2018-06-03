@@ -5,21 +5,36 @@
 
 <div class="container">
 
-    <div class="row">
+    <div class="row my-5">
 
-        <form action="/Usuario/AutenticarLogin" method="post">
-
-            <div class="form-group col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-                <label class="control-label" for="email">Email</label>
-                <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+        <form class="form mx-auto " action="/Usuario/AutenticarLogin" method="post">
+            <h3 class="text-center">Acesso</h3>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <img src="~/images/at.png" />
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Seu Email">
+                </div>
             </div>
-            <div class="form-group col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+            <div class="form-group">
                 <label class="control-label" for="senha">Senha</label>
-                <input type="password" class="form-control" name="senha" id="senha" placeholder="Email">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <img src="~/images/lock.png" />
+                        </div>
+                    </div>
+                    <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
+                </div>
             </div>
             <div class="col-sm-12"></div>
-            <div class="form-group col-sm-2 col-sm-offset-5">
+            <div class="form-group">
                 <button class="btn btn-primary btn-block" type="submit" >Acessar</button>
+                <p>Ainda não é cliente? <a asp-controller="Usuario" asp-action="CadastroCliente">Cadastrar-Se</a></p>
             </div>
         </form>
 

@@ -37,6 +37,8 @@ namespace Lojinha.Controllers
 
         public IActionResult AlteraProduto(int id)
         {
+            IList<Categoria> categorias = this._dataService.GetCategoria();
+            
             return View(id);
         }
 
