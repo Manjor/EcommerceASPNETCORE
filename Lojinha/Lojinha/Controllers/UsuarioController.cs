@@ -136,7 +136,7 @@ namespace Lojinha.Controllers
             
             _usuarioServico.AddUsuario(usuario);
 
-            return Redirect("CadastroCliente");
+            return Redirect("Login");
         }
         public IActionResult AdicionaFuncionario
             (string nome, string email, string cpf, string senha, int nivel, string logradouro, string bairro, string complemento, string numero, string cidade, int estado)
