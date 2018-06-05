@@ -30,10 +30,9 @@
                             <input hidden id="nome" name="id" value="@p.Id" />
                             <input class="btn btn-danger btn-block" type="submit" name="remover" value="X" />
                         </form>
-                        <form action="AlteraProduto" method="get">
-                            <input  name="id" value="@p.Id" hidden />
-                            <input class="btn btn-primary btn-block" type="submit" name="alterar" value="Alterar" />
-                        </form>
+                        
+
+                        <a class="btn btn-primary btn-block" href="/Produto/AlteraProduto/@p.Id"> alterar </a>
                     </td>
                 </tr>
                  }

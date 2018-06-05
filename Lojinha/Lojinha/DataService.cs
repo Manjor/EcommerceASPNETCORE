@@ -120,6 +120,10 @@ namespace Lojinha
         {
             return this._contexto.ItensPedido.Where(p => p.Id == id).SingleOrDefault();
         }
+        public Produto GetProdutoId(int id)
+        {
+            return this._contexto.Produtos.Where(p => p.Id == id).SingleOrDefault();
+        }
 
         public void AddItemPedido(ItemPedido itemPedido)
         {

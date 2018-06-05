@@ -9,29 +9,32 @@
 
     <div class="row">
 
-        <form class="col-md-6 mx-auto" action="/Alterar" method="post">
+        <form class="col-md-6 mx-auto" asp-action="Alterar" method="post">
+            <!-- id -->
+            <input type="number" hidden name="id" value="@ViewBag.Id"/>
+
             <!--Grupo de entrada para Nome do Produto-->
             <div class="form-group">
                 <label for="nome">Nome do Produto:</label>
-                <input class="form-control" id="nome" name="nome" required />
+                <input class="form-control" id="nome" name="nome" required value="@ViewBag.Produto.NomeProduto" />
             </div>
 
             <!--Grupo de entrada para a descrição do produto-->
             <div class="form-group">
                 <label for="descricao">Descricao:</label>
-                <input class="form-control" id="descricao" name="descricao" required />
+                <input class="form-control" id="descricao" name="descricao" required value="@ViewBag.Produto.Descricao"/>
             </div>
 
             <!--Grupo de entrada para a quantidade do Produto-->
             <div class="form-group">
                 <label for="quantidade">Quantidade:</label>
-                <input type="number" class="form-control" id="quantidade" name="quantidade" required />
+                <input type="number" class="form-control" id="quantidade" name="quantidade" required value="@ViewBag.Produto.Quantidade" />
             </div>
 
             <!--Grupo de entrada para o valor do produto-->
             <div class="form-group">
                 <label for="valor">Valor:</label>
-                <input class="form-control" id="valor" name="valor" required />
+                <input class="form-control" id="valor" name="valor" required value="@ViewBag.Produto.Valor" />
             </div>
 
             <!--Grupo de entrada para o arquivo do Produto-->
@@ -45,15 +48,15 @@
                 <select class="form-control" id="categoria" name="categoria">
                     @foreach (var categoria in ViewBag.Categorias)
                     {
-
                         <option value="@categoria.Id">@categoria.NomeCategoria</option>
                     }
                 </select>
+              
             </div>
             <div class="col-md-12"></div>
+
             <div class="form-group">
-                
-                <input class="btn btn-primary btn-block btn-lg" type="submit" name="botao-add" value="Cadastro" />
+                <input class="btn btn-primary btn-block btn-lg" type="submit"  value="Alterar" />
             </div>
 
         </form>

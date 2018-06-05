@@ -37,19 +37,23 @@ namespace Lojinha.Controllers
 
         public IActionResult AlteraProduto(int id)
         {
+            Produto p = this._dataService.GetProdutoId(id);
             IList<Categoria> categorias = this._dataService.GetCategoria();
-            
+            ViewBag.Categorias = categorias;
+            ViewBag.Id = id;
+            ViewBag.Produto = p;
             return View(id);
         }
 
-        public IActionResult Alterar(int id, string nome, string descricao, int quantidade, decimal valor, string arquivo, int categoria)
+        public IActionResult Alterar(int id, string nome, string descricao,
+            int quantidade, decimal valor, string arquivo, int categoria)
         {
             Categoria cat = this._dataService.GetCategoriaId(categoria);
             Produto produto = new Produto(nome, descricao, quantidade, valor, arquivo, cat);
 
             this._dataService.AlteraProduto(id, produto);
 
-            return Redirect("AlteraProduto");
+            return RedirectToAction("GerenciarProdutos");
         }
         public IActionResult GerenciarProdutos()
         {
